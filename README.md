@@ -20,4 +20,6 @@ Se creó dos archivos para la ejecución del proyecto mediante docker, asi se ma
 ## Flujo de trabajo
 
 Para el flujo de trabajo se generaron dos principales ramas, la rama `main` y la rama `dev` para efectos practicos se manejó principalmente en la rama dev, sin embargo, para cada feature se debe crear su respectiva rama para la creación de cada seccion. Al ser un proyecto pequeño realmente se hizo muy poca separación de ramas, puesto que la relación de cada avance involucraba practicamente todas las secciones del codigo. Sin embargo, para ciertas secciones si se creo si respectiva rama con el modelo feat/{NombreRama} fix/{Nombre Rama} esto con el fin de manejar orden en cada uno.
-Por otra parte, los commits tambien tenian cierta estructura, como: "feat: se crean los repositorios para producto" o "fix: se arregla orden de findAll"
+Por otra parte, los commits tambien tenian cierta estructura, como: "feat: se crean los repositorios para producto" o "fix: se arregla orden de findAll".
+
+Por ultimo, el flujo de trabajo era el siguiente, desde la rama temporal "feat/nombre" se hacia un PullRequest hacia la rama dev, y posteriormente se hace otro pull request a la rama main para tener los cambios al dia.
