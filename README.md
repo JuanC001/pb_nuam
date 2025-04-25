@@ -23,3 +23,13 @@ Para el flujo de trabajo se generaron dos principales ramas, la rama `main` y la
 Por otra parte, los commits tambien tenian cierta estructura, como: "feat: se crean los repositorios para producto" o "fix: se arregla orden de findAll".
 
 Por ultimo, el flujo de trabajo era el siguiente, desde la rama temporal "feat/nombre" se hacia un PullRequest hacia la rama dev, y posteriormente se hace otro pull request a la rama main para tener los cambios al dia.
+
+## Documentación Postman:
+
+Se añade link con toda la información de la colección:
+
+https://documenter.getpostman.com/view/38032460/2sB2izEYsE#993b5e93-7e61-4c6a-9150-73f08c1ddd88
+
+Aquí se deja tambien la colección completa de postman:
+
+[pb-nuam.postman_collection.json](https://github.com/user-attachments/files/19912274/pb-nuam.postman_collection.json)
