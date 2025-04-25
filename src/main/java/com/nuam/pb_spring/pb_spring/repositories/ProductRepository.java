@@ -1,12 +1,15 @@
 package com.nuam.pb_spring.pb_spring.repositories;
 
 import com.nuam.pb_spring.pb_spring.models.entity.Product;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+
+import org.springframework.data.domain.Sort;
 
 @Repository
 public class ProductRepository {
@@ -17,7 +20,7 @@ public class ProductRepository {
         private ProductPagingRepository productPagingRepository;
 
         public Page<Product> getAll(int page, int size) {
-                PageRequest pageable = PageRequest.of(page, size);
+                PageRequest pageable = PageRequest.of(page, size, Sort.by("id").ascending());
                 return productPagingRepository.findAll(pageable);
         }
 
