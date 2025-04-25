@@ -1,6 +1,8 @@
 package com.nuam.pb_spring.pb_spring.controllers;
 
+import com.nuam.pb_spring.pb_spring.models.dto.ProductDTO;
 import com.nuam.pb_spring.pb_spring.services.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -37,7 +39,7 @@ public class ProductController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Product> postProduct(@RequestBody Product entity) {
+    public ResponseEntity<Product> postProduct(@Valid @RequestBody ProductDTO entity) {
 
         try {
             Date today = new Date();
@@ -58,7 +60,7 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Product> putProduct(@PathVariable Long id, @RequestBody Product entity) {
+    public ResponseEntity<Product> putProduct( @PathVariable Long id, @Valid @RequestBody ProductDTO entity) {
 
         Optional<Product> product = productService.getProductById(id);
         if (product.isPresent()) {
