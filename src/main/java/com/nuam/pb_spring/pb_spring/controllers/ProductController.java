@@ -2,6 +2,7 @@ package com.nuam.pb_spring.pb_spring.controllers;
 
 import com.nuam.pb_spring.pb_spring.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.nuam.pb_spring.pb_spring.models.entity.Product;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,8 +22,10 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/")
-    public ResponseEntity<List<Product>> getAllProducts() {
-        List<Product> products = productService.getAllProducts();
+    public ResponseEntity<Page<Product>> getAllProducts(@RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size) {
+
+        Page<Product> products = productService.getAllProducts(page, size);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
@@ -48,7 +50,7 @@ public class ProductController {
             Product newProduct = productService.createProduct(myNewProduct);
 
             return new ResponseEntity<>(newProduct, HttpStatus.CREATED);
-        }catch (Error e){
+        } catch (Error e) {
 
             System.out.println("Error: " + e.getMessage());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -72,7 +74,7 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity deleteProduct(@PathVariable Long id) {
-        if(productService.deleteProduct(id)){
+        if (productService.deleteProduct(id)) {
             return new ResponseEntity<>(HttpStatus.OK);
         }
 
