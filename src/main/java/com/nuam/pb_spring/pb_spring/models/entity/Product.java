@@ -4,10 +4,12 @@ package com.nuam.pb_spring.pb_spring.models.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "Products")
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
@@ -23,7 +25,7 @@ public class Product {
     private BigDecimal price;
 
     @Column(name = "createdAt")
-    private String createdAt;
+    private Date createdAt;
 
     public Long getId() {
         return id;
@@ -57,11 +59,11 @@ public class Product {
         this.price = price;
     }
 
-    public String getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 }
